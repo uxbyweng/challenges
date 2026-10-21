@@ -11,40 +11,46 @@
 // ['O','Q','R','S'] -> 'P'
 // (Use the English alphabet with 26 letters!)
 
-const givenLetters = ["O", "Q", "R", "S"];
+// const givenLetters = ["O", "Q", "R", "S"];
+const givenLetters = ["a", "b", "c", "d", "f"];
 const lowerLetters = givenLetters.map((letter) => letter.toLowerCase());
 const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let istGross = false;
+const istGross = givenLetters.every((l) => l === l.toUpperCase());
 let startingPoint = 0;
-
-// Gross und Kleinschreibung checken
-// function checkGrossKleinSchreibung(givenLetters) {
-//     if ((givenLetters = (s) => s === s.toUpperCase())) {
-//         istGross = true;
-//     } else {
-//         istGross = false;
-//     }
-//     console.log(`Großschreibung: ${istGross}`);
-// }
+let count = 0;
+let missingLetter = "";
 
 // Startpunkt des Arrays finden
 function findStartingpoint() {
     for (letter in alphabet) {
         if (alphabet[letter] === lowerLetters[0]) {
-            console.log(letter);
-            //startingPoint = lowerLetters[letter];
+            startingPoint = letter;
+            // console.log(letter);
         }
     }
-    console.log(`Array beginnt mit: ${startingPoint}`);
+    console.log(`Das Array beginnt bei Buchstabe: ${alphabet[startingPoint]} \n`);
 }
+
 function findMissingLetter(givenLetters) {
-    // checkGrossKleinSchreibung(givenLetters);
     findStartingpoint();
-    // for (letter in givenLetters) {
-    //     if (givenLetters[letter] !== alphabet[letter]) {
-    //         console.log(alphabet[letter]);
-    //     }
-    // }
+
+    for (let i = startingPoint; i < givenLetters.length + startingPoint; i++) {
+        // console.log(alphabet[i]);
+        // console.log(lowerLetters[count]);
+        if (alphabet[i] !== lowerLetters[count]) {
+            // console.log(alphabet[i]);
+            missingLetter = alphabet[i];
+            break;
+        }
+        count = count + 1;
+    }
+
+    if (istGross) {
+        missingLetter = missingLetter.toUpperCase();
+        console.log("The missing letter is:", missingLetter);
+    } else {
+        console.log("The missing letter is:", missingLetter);
+    }
 }
 
 findMissingLetter(givenLetters);
