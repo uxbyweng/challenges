@@ -1,4 +1,4 @@
-userData = [
+const userData = [
     {
         username: "David",
         status: "online",
@@ -17,7 +17,7 @@ userData = [
 ];
 
 // Neues Objekt mit 3 Arrays für den Status der Benutzer
-userStatus = { online: [], offline: [], away: [] };
+const userStatus = { online: [], offline: [], away: [] };
 
 function setUserStatus() {
     for (user in userData) {
