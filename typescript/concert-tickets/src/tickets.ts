@@ -47,3 +47,31 @@ function describeSeat(seat: Seat): string {
     return newSeat;
 }
 console.log(describeSeat(["C", 12]));
+
+// 07 erstelle eine Funktion 'parseQuantity(input: unknown): number' die dein Eingabewert zurückgibt, wenn es sich um eine Zahl (number) handelt und sonst eine '0'
+function parseQuantity(input: unknown): number {
+    if (typeof input === "number") {
+        return input;
+    } else {
+        return 0;
+    }
+}
+console.log(parseQuantity("a"));
+
+// 08 erstelle mindestens ein Ticket jeder Kategorie, erfasse die Preise und die Sitzplatzbeschreibung für jedes Ticket mit Sitzplatzangabe.
+const basicTicket: Ticket = {
+    id: 1,
+    tier: "standing",
+    seat: ["A", 5],
+};
+const standardTicket: Ticket = {
+    id: 2,
+    tier: "seated",
+    seat: ["B", 11],
+};
+const vipTicket: VipTicket = {
+    id: 3,
+    tier: "vip",
+    seat: ["C", 13],
+    loungeAccess: true,
+};
