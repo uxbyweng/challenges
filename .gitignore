@@ -1,3 +1,24 @@
+# Abhängigkeiten
 node_modules/
+
+# Build-Ergebnis (wird aus src/ neu erzeugt)
 dist/
+
+# Geheimnisse und lokale Einstellungen
+.env
+.env.*
+!.env.example
+
+# Logs
 *.log
+npm-debug.log*
+
+# TypeScript-Cache
+*.tsbuildinfo
+
+# Betriebssystem- und Editor-Dateien
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
+.idea/
