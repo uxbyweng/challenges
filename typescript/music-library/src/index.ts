@@ -5,8 +5,7 @@
 // Schnittstellen, Schnittmengen und Tupeln. In der Projekteinrichtungssitzung teilen Sie das Projekt in mehrere Module auf.
 
 // Typannotationen und Aliase
-// Annotierte Variablen und einen Typalias für das Kerndatenmodell hinzufügen:
-
+// Annotierte Variablen und einen Typalias für das Kerndatenmodell hinzu
 // Ein "Alias" ist nur ein anderer Name für einen bestehenden Typ.
 // TrackId ist also ganz normal eine Zahl, aber der Name verrät uns, wofür die Zahl gedacht ist.
 type TrackId = number;
@@ -168,6 +167,7 @@ const chart: ChartEntry[] = [
 
 // Destrukturierung: Wir packen jedes Tupel direkt in zwei Variablen aus,
 // position (die Zahl) und title (der Text), und gehen so die ganze Hitparade durch.
+
 for (const [position, title] of chart) {
     console.log(`#${position} ${title}`);
 }

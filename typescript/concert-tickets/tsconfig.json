@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        // TypeScript liest aus src und schreibt kompilierte Ausgaben nach dist,
+        // wodurch Quellcode und Build-Dateien getrennt bleiben.
+        "rootDir": "./src",
+        "outDir": "./dist",
+
+        // 'commonjs' passt zu "type": "commonjs" in der package.json,
+        // damit 'node dist/tickets.js' das kompilierte Ergebnis direkt ausführen kann.
+        "target": "esnext",
+        "module": "commonjs",
+
+        // 'strict' aktiviert die wichtigsten Typprüfungen
+        // (z. B. keine impliziten 'any' und Prüfung auf null/undefined).
+        "strict": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+}
