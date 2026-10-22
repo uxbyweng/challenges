@@ -1,1 +1,3 @@
-computer-setup_is-token-correct/
+node_modules/
+dist/
+*.log
