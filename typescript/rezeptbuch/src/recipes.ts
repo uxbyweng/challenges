@@ -78,7 +78,7 @@ function summarize(recipe: Recipe): string {
     const ingredientNames = recipe.ingredients
 
         // mit map jede Zutat durchgehen und Namen rausholen.
-        // pro Zutat einen Text ()Menge + "g " + Name) zusammenbauen -> "500g Mehl"
+        // pro Zutat einen Text (Menge + "g " + Name) zusammenbauen
         .map((ingredient) => `${ingredient.amountGrams}g ${ingredient.name}`)
 
         // kleine Texte mit ", " zu einem langen Text zusammnfügen
