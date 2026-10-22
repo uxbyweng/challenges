@@ -75,3 +75,11 @@ const vipTicket: VipTicket = {
     seat: ["C", 13],
     loungeAccess: true,
 };
+
+// 08 Rufe die Funktion 'parseQuantity' mit einer Nummer, einer Zeichenkette und einem JSON.parse("3") Komma auf und protokolliere die Ergebnisse.
+console.log("parseQuantity Aufruf mit 'C'");
+console.log(parseQuantity("C")); // -> 0
+console.log("parseQuantity Aufruf mit '17'");
+console.log(parseQuantity(17)); // -> 17
+console.log("parseQuantity Aufruf mit 'JSON.parse(\"3\")'");
+console.log(parseQuantity(JSON.parse("3"))); // -> 3
