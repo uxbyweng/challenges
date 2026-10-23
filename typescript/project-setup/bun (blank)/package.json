@@ -1,0 +1,16 @@
+{
+    "name": "bun-(blank)",
+    "module": "index.ts",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "typecheck": "bun check",
+        "dev": "bun --watch index.ts"
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^7"
+    }
+}
