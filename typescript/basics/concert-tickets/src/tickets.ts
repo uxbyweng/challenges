@@ -58,7 +58,11 @@ function parseQuantity(input: unknown): number {
 }
 console.log(parseQuantity("a"));
 
-// 08 erstelle mindestens ein Ticket jeder Kategorie, erfasse die Preise und die Sitzplatzbeschreibung für jedes Ticket mit Sitzplatzangabe.
+// 08 erstelle mindestens ein Ticket jeder Kategorie, logge die Preise und die Sitzplatzbeschreibung für jedes Ticket mit Sitzplatzangabe.
+let basicSeatText: string = "kein Sitzplatz";
+// if (basicTicket.seat !== undefined) {
+//     basicSeatText = describeSeat(basicTicket.seat);
+// }
 const basicTicket: Ticket = {
     id: 1,
     tier: "standing",
@@ -75,6 +79,40 @@ const vipTicket: VipTicket = {
     seat: ["C", 13],
     loungeAccess: true,
 };
+
+console.log(
+    "BASIC TICKET \nTicketID:",
+    basicTicket.id,
+    "\nCategory: ",
+    basicTicket.tier,
+    "\nSeat: ",
+    describeSeat(basicTicket.seat),
+    "\nPrice: ",
+    ticketPrice(basicTicket.tier),
+    "€\n",
+);
+console.log(
+    "STANDARD TICKET \nTicketID:",
+    standardTicket.id,
+    "\nCategory: ",
+    standardTicket.tier,
+    "\nSeat: ",
+    standardTicket.seat,
+    "\nPrice: ",
+    ticketPrice(standardTicket.tier),
+    "€\n",
+);
+console.log(
+    "VIP TICKET \nTicketID:",
+    vipTicket.id,
+    "\nCategory: ",
+    vipTicket.tier,
+    "\nSeat: ",
+    vipTicket.seat,
+    "\nPrice: ",
+    ticketPrice(vipTicket.tier),
+    "€\n",
+);
 
 // 08 Rufe die Funktion 'parseQuantity' mit einer Nummer, einer Zeichenkette und einem JSON.parse("3") Komma auf und protokolliere die Ergebnisse.
 console.log("parseQuantity Aufruf mit 'C'");

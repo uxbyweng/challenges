@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        // Saubere Zuordnung von Quellcode zu Build-Datei erzwingen:
+        // TypeScript liest aus src und schreibt kompilierte Ausgaben nach dist,
+        // wodurch die beiden Verzeichnisbäume getrennt bleiben.
+        "rootDir": "./src",
+        "outDir": "./dist",
+
+        // Modulsyntax definieren, welche das kompilierte JavaScript verwenden soll.
+        // 'esnext' lässt 'import'und 'export' Statements  unverändert.
+        "target": "esnext",
+        "module": "esnext",
+
+        // 'strict'ermöglicht eine Reihe von Prüfungen,
+        // die die häufigsten Typfehler abfangen,
+        // einschließlich impliziter anyund ungeprüfter nullTypfehler undefined.
+        "strict": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+}
