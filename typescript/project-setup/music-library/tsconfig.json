@@ -1,21 +1,24 @@
 {
     "compilerOptions": {
-        // Saubere Zuordnung von Quellcode zu Build-Datei erzwingen:
-        // TypeScript liest aus src und schreibt kompilierte Ausgaben nach dist,
-        // wodurch die beiden Verzeichnisbäume getrennt bleiben.
-        "rootDir": "./src",
-        "outDir": "./dist",
+        "rootDir": "./src", // Quellcode (.ts) liegt hier
+        "outDir": "./dist", // kompiliertes JavaScript landet hier
+        "target": "esnext", // modernes JavaScript erzeugen, nichts herunterkompilieren
+        "lib": ["esnext"], // verfügbare Sprach-Features/Typen (kein DOM, da Node)
+        "types": ["node"], // lädt @types/node (console, process, ...)
+        "module": "nodenext", // Modulsystem passend zu Node (ESM bei "type": "module")
+        "verbatimModuleSyntax": true, // import type und import strikt trennen
+        "esModuleInterop": true, // CommonJS-Pakete sauber importieren können
+        "resolveJsonModule": true, // import data from 'users.json'
+        "sourceMap": true, // .js.map erzeugen, Fehler zeigen auf die .ts-Zeile
+        "skipLibCheck": true, // überspringt check von den ganz Libs
 
-        // Modulsyntax definieren, welche das kompilierte JavaScript verwenden soll.
-        // 'esnext' lässt 'import'und 'export' Statements  unverändert.
-        "target": "esnext",
-        "module": "esnext",
-
-        // 'strict'ermöglicht eine Reihe von Prüfungen,
-        // die die häufigsten Typfehler abfangen,
-        // einschließlich impliziter anyund ungeprüfter nullTypfehler undefined.
-        "strict": true
+        // coding rules
+        "strict": true, // alle strengen Typprüfungen an (u. a. strictNullChecks, noImplicitAny)
+        "noUnusedLocals": true, // Fehler bei ungenutzten Variablen
+        "noUnusedParameters": true, // Fehler bei ungenutzten Funktionsparametern
+        "noFallthroughCasesInSwitch": true, // Fehler bei case ohne break/return
+        "forceConsistentCasingInFileNames": true // Import-Pfade müssen exakt in Groß-/Kleinschreibung stimmen
     },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules"]
+    "include": ["src/**/*"], // alles in src/ wird kompiliert
+    "exclude": ["node_modules"] // Pakete nie mitkompilieren
 }
