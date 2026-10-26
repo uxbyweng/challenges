@@ -3,6 +3,7 @@
 // Imports
 import type { EntityId, Timestamped, HasId, Book, IsbnParts, BookCreatePayload, BookUpdatePayload, BookPreview } from "./types.js";
 import { ok } from "./api.js";
+import { fetchBooks, fetchBook, createBook, updateBook, parseIsbn } from "./bookService.js";
 
 // EntityId
 const id: EntityId = 44;
@@ -90,3 +91,31 @@ const BookIdTitleAndAuthor: BookPreview = {
     author: "J. R. R. Tolkien",
 };
 console.log("\nBook ID: ", BookIdTitleAndAuthor.id, "\nBook Title: ", BookIdTitleAndAuthor.title, "\nBook Author: ", BookIdTitleAndAuthor.author, "\n");
+
+// Ttest der Bokk Services =====
+
+// fetchBooks
+const booksResponse = await fetchBooks();
+console.log("fetchBooks:", booksResponse);
+
+// try/catch
+try {
+    console.log("fetchBook:", await fetchBook(1));
+} catch (error) {
+    console.log("fetchBook Fehler:", (error as Error).message);
+}
+
+try {
+    console.log("createBook:", await createBook(BookPayload));
+} catch (error) {
+    console.log("createBook Fehler:", (error as Error).message);
+}
+
+try {
+    console.log("updateBook:", await updateBook(1, BookPayloadOptional));
+} catch (error) {
+    console.log("updateBook Fehler:", (error as Error).message);
+}
+
+// parseIsbn: normale Funktion, das Ergebnis ist ein tuple
+console.log("parseIsbn:", parseIsbn("3-78613-012"));
