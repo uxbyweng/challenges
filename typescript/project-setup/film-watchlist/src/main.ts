@@ -1,5 +1,7 @@
+// /src/main.ts
+
 import type { Film, Playlist } from "./types.js";
-import { formatFilm, getUnwatched } from "./types.js";
+import { formatFilm, getUnwatched, getProperty, pluck } from "./types.js";
 
 const playlistName: string = "Karstens Top 5 Filmlist";
 const films: Film[] = [
@@ -32,3 +34,18 @@ const unwatched = getUnwatched(playlist);
 for (const film of unwatched) {
     console.log(formatFilm(film));
 }
+
+const titles = pluck(playlist.films, "title");
+// string[]: ["Nikita", "Dead Man", ...]
+
+const years = pluck(playlist.films, "year");
+// number[]: [1990, 1995, ...]
+
+const oldest = Math.min(...years); // geht, weil TypeScript weiß: number[]
+
+const title = getProperty(films[0], "title");
+// title ist string
+
+console.log("Alle Filmtitel: ", titles);
+console.log("Ältester Film: ", oldest);
+console.log("Titel des 1. Films: ", title);
