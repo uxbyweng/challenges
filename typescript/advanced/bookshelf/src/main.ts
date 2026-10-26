@@ -1,7 +1,7 @@
 // src/main.ts
 
 // Imports
-import type { EntityId, Timestamped, HasId, Book, IsbnParts } from "./types.js";
+import type { EntityId, Timestamped, HasId, Book, IsbnParts, BookCreatePayload, BookUpdatePayload, BookPreview } from "./types.js";
 import { ok } from "./api.js";
 
 // EntityId
@@ -67,3 +67,26 @@ const allTracks = ok(books);
 
 // Formatierte Ausgabe aller Tracks und Featured-Tracks mit API-Response 'o.k.'
 console.log(`Gesamtanzahl Bücher: ${allTracks.data.length} books\n`);
+
+// BookCreatePayload (without "id", "createdAt" , "updatedAt")
+const BookPayload: BookCreatePayload = {
+    title: "Herr der Ringe",
+    author: "J. R. R. Tolkien",
+    isbn13: "978-3608964295",
+    isAvailable: true,
+};
+console.log(BookPayload);
+
+// BookUpdatePayload (every field is optional)
+const BookPayloadOptional: BookUpdatePayload = {
+    title: "Herr der Ringe",
+};
+console.log("(only) Book Title: ", BookPayloadOptional.title);
+
+// BookPreview (only 'id', 'title' and 'author')
+const BookIdTitleAndAuthor: BookPreview = {
+    id: 1,
+    title: "Herr der Ringe",
+    author: "J. R. R. Tolkien",
+};
+console.log("\nBook ID: ", BookIdTitleAndAuthor.id, "\nBook Title: ", BookIdTitleAndAuthor.title, "\nBook Author: ", BookIdTitleAndAuthor.author, "\n");
