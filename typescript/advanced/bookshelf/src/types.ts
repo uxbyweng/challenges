@@ -32,3 +32,12 @@ export interface ApiResponse<T> {
     message: string;
     data: T;
 }
+
+// BookCreatePayload: all Book properties except id, createdAt, and updatedAt
+export type BookCreatePayload = Omit<Book, "id" | "createdAt" | "updatedAt">;
+
+// BookUpdatePayload: same as BookCreatePayload, but every field is optional
+export type BookUpdatePayload = Partial<Book>;
+
+// BookPreview: only id, title, and author from Book
+export type BookPreview = Pick<Book, "id" | "title" | "author">;
