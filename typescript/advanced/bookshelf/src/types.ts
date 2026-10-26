@@ -37,7 +37,7 @@ export interface ApiResponse<T> {
 export type BookCreatePayload = Omit<Book, "id" | "createdAt" | "updatedAt">;
 
 // BookUpdatePayload: same as BookCreatePayload, but every field is optional
-export type BookUpdatePayload = Partial<Book>;
+export type BookUpdatePayload = Partial<BookCreatePayload>;
 
 // BookPreview: only id, title, and author from Book
 export type BookPreview = Pick<Book, "id" | "title" | "author">;
