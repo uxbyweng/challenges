@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!-- Hier Grundgerüst. Die Songliste wird erst vom JavaScript (dist/main.js) eingefügt. -->
+<html lang="en">
+
+<head>
+    <!-- Zeichensatz UTF-8, damit Sonderzeichen wie ♥ und ♡ richtig angezeigt werden -->
+    <meta charset="UTF-8" />
+    <title>Track Search</title>
+    <!-- Lädt das kompilierte Programm aus dist/ (das Ergebnis von `npx tsc`).
+         Nicht src/main.ts: Der Browser versteht kein TypeScript.
+         type="module" ist nötig, weil main.ts import und top-level await nutzt.
+         Module werden automatisch erst nach dem Aufbau der Seite ausgeführt
+         (wie "defer"), darum finden getElementById die Elemente unten. -->
+    <script type="module" src="dist/main.js"></script>
+</head>
+
+<body>
+    <!-- Suchformular. Die id="search-form" nutzt main.ts, um das Formular zu finden. -->
+    <form id="search-form">
+        <!-- name="query" ist wichtig: Darüber liest main.ts den Wert mit
+             FormData.get("query"). type="search" = Eingabefeld mit Such-Look. -->
+        <input name="query" type="search" placeholder="Title or artist" />
+        <!-- Ein Button in einem <form> schickt es standardmäßig ab ("submit").
+             main.ts fängt das ab und sucht, ohne die Seite neu zu laden. -->
+        <button>Search</button>
+    </form>
+    <!-- Hier landen die Songs. main.ts füllt diese leere Liste mit <li>-Einträgen
+         (id="track-list" dient zum Finden). -->
+    <ul id="track-list"></ul>
+</body>
+
+</html>

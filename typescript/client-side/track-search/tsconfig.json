@@ -1,0 +1,24 @@
+{
+    // Einstellungen für den TypeScript-Compiler (`npx tsc`).
+    // In dieser Datei sind Kommentare erlaubt (tsc versteht "JSON mit Kommentaren").
+    "compilerOptions": {
+        // Hier liegt der Quellcode (.ts). Nur dieser Ordner wird kompiliert.
+        "rootDir": "./src",
+        // Hierhin schreibt tsc die fertigen .js-Dateien. Die lädt index.html.
+        "outDir": "./dist",
+        // Welche JavaScript-Version erzeugt wird. ESNext = die neueste, denn
+        // moderne Browser können das (z. B. top-level await in main.ts).
+        "target": "ESNext",
+        // Modulsystem: ESNext lässt `import`/`export` unverändert stehen, so wie
+        // der Browser sie versteht (<script type="module">).
+        // Anders als im Node-Projekt mit "commonjs" (require).
+        "module": "ESNext",
+        // Welche eingebauten Typen TypeScript kennt:
+        // "dom" = Browser-Dinge wie document, fetch, HTMLFormElement
+        // "esnext" = moderne JavaScript-Funktionen (Array, Promise, ...)
+        "lib": ["dom", "esnext"],
+        // Schaltet alle strengen Prüfungen ein (z. B. kein stilles `any`, null-Prüfung).
+        // Das bringt dir die meisten Warnungen und ist die empfohlene Einstellung.
+        "strict": true
+    }
+}
