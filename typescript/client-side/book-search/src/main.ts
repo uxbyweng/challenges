@@ -1,69 +1,49 @@
-import { fetchTracks } from "./tracks.js";
-import type { Track } from "./tracks.js";
+// src/main.ts
 
-// Part 2: Select the elements
-// Select the form and the list, and instead of asserting their types, narrow them with instanceof.
-// If an element is missing, stop with an error:
+import { fetchBooks } from "./books.js";
+import type { Book } from "./books.js";
 
 const form = document.getElementById("search-form");
-const list = document.getElementById("track-list");
+const list = document.getElementById("book-list");
 
 if (!(form instanceof HTMLFormElement)) {
     throw new Error("Element #search-form not found");
 }
 if (!(list instanceof HTMLUListElement)) {
-    throw new Error("Element #track-list not found");
+    throw new Error("Element #book-list not found");
 }
 
-const render = (results: Track[]): void => {
+const render = (results: Book[]): void => {
     list.replaceChildren(
-        ...results.map((track) => {
+        ...results.map((book) => {
             const item = document.createElement("li");
-            const button = document.createElement("button");
-            button.dataset.id = String(track.id);
-            button.textContent = track.liked ? "♥" : "♡";
-            item.append(button, ` ${track.title} by ${track.artist}`);
+            item.append(` ${book.title} by ${book.authors}`);
             return item;
         }),
     );
 };
 
-// Part 3: Read the search query
-// Add a function that reads the query from the form, and a submit listener that logs it.
-// Hover over event to see the type TypeScript inferred:
 function readQuery(form: HTMLFormElement): string {
     const query = new FormData(form).get("query");
     return typeof query === "string" ? query.trim().toLowerCase() : "";
 }
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const query = readQuery(form);
-    render(tracks.filter((track) => `${track.title} ${track.artist}`.toLowerCase().includes(query)));
-});
+const API_URL = "https://www.dbooks.org/api/search/";
 
-list.addEventListener("click", (event) => {
-    const button = event.target;
-    if (!(button instanceof HTMLButtonElement)) {
+form.addEventListener("submit", async (event) => {
+    event.preventDefault(); // reload verhindern
+    const query = readQuery(form);
+
+    if (query === "") {
+        // wenn kein suchbegriff eingegeben wird
+        list.replaceChildren();
         return;
     }
-
-    const id = Number(button.dataset.id);
-    const track = tracks.find((item) => item.id === id);
-    if (track) {
-        track.liked = !track.liked;
-        button.textContent = track.liked ? "♥" : "♡";
+    try {
+        const books = await fetchBooks(`${API_URL}${encodeURIComponent(query)}`);
+        render(books);
+    } catch (error) {
+        const message = error instanceof Error ? error.message : "Unknown error";
+        list.textContent = `Could not load books: ${message}`;
     }
 });
-
-// const tracks = await fetchTracks("tracks.json");
-// render(tracks);
-let tracks: Track[] = [];
-
-try {
-    tracks = await fetchTracks("tracks.json");
-    render(tracks);
-} catch (error) {
-    const message = error instanceof Error ? error.message : "Unknown error";
-    list.textContent = `Could not load tracks: ${message}`;
-}

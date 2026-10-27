@@ -1,0 +1,670 @@
+{
+    "status": "ok",
+    "total": "83",
+    "books": [
+        {
+            "id": "854",
+            "title": "The Definitive Guide to Graph Databases",
+            "subtitle": "for the RDBMS Developer",
+            "authors": "Michael Hungers, Ryan Boyd, William Lyon",
+            "image": "https://www.dbooks.org/img/books/854s.jpg",
+            "url": "https://www.dbooks.org/the-definitive-guide-to-graph-databases-854/"
+        },
+        {
+            "id": "855",
+            "title": "Graph Databases For Beginners",
+            "subtitle": "The #1 Platform for Connected Data",
+            "authors": "Bryce Merkl Sasaki, Joy Chao, Rachel Howard",
+            "image": "https://www.dbooks.org/img/books/855s.jpg",
+            "url": "https://www.dbooks.org/graph-databases-for-beginners-855/"
+        },
+        {
+            "id": "1906434468",
+            "title": "Performance Tuning with SQL Server Dynamic Management Views",
+            "subtitle": "",
+            "authors": "Louis Davidson, Tim Ford",
+            "image": "https://www.dbooks.org/img/books/1906434468s.jpg",
+            "url": "https://www.dbooks.org/performance-tuning-with-sql-server-dynamic-management-views-1906434468/"
+        },
+        {
+            "id": "191003522X",
+            "title": "SQL Server Execution Plans, 3rd Edition",
+            "subtitle": "For SQL Server 2008 through to 2017 and Azure SQL Database",
+            "authors": "Grant Fritchey",
+            "image": "https://www.dbooks.org/img/books/191003522Xs.jpg",
+            "url": "https://www.dbooks.org/sql-server-execution-plans-3rd-edition-191003522x/"
+        },
+        {
+            "id": "3319939351",
+            "title": "Entity-Oriented Search",
+            "subtitle": "",
+            "authors": "Krisztian Balog",
+            "image": "https://www.dbooks.org/img/books/3319939351s.jpg",
+            "url": "https://www.dbooks.org/entity-oriented-search-3319939351/"
+        },
+        {
+            "id": "1617295086",
+            "title": "Exploring .NET Core",
+            "subtitle": "with Microservices, ASP.NET Core, and Entity Framework Core",
+            "authors": "Dustin Metzgar",
+            "image": "https://www.dbooks.org/img/books/1617295086s.jpg",
+            "url": "https://www.dbooks.org/exploring-net-core-1617295086/"
+        },
+        {
+            "id": "1491930896",
+            "title": "Graph Databases",
+            "subtitle": "New Opportunities for Connected Data",
+            "authors": "Ian Robinson, Jim Webber, Emil Eifrem",
+            "image": "https://www.dbooks.org/img/books/1491930896s.jpg",
+            "url": "https://www.dbooks.org/graph-databases-1491930896/"
+        },
+        {
+            "id": "3030296652",
+            "title": "Real-time Linked Dataspaces",
+            "subtitle": "Enabling Data Ecosystems for Intelligent Systems",
+            "authors": "Edward Curry",
+            "image": "https://www.dbooks.org/img/books/3030296652s.jpg",
+            "url": "https://www.dbooks.org/real-time-linked-dataspaces-3030296652/"
+        },
+        {
+            "id": "191003519X",
+            "title": "SQL Server Internals: In-Memory OLTP",
+            "subtitle": "Inside the SQL Server 2016 Hekaton Engine",
+            "authors": "Kalen Delaney",
+            "image": "https://www.dbooks.org/img/books/191003519Xs.jpg",
+            "url": "https://www.dbooks.org/sql-server-internals-in-memory-oltp-191003519x/"
+        },
+        {
+            "id": "1227",
+            "title": "Database Design",
+            "subtitle": "",
+            "authors": "Adrienne Watt",
+            "image": "https://www.dbooks.org/img/books/1227s.jpg",
+            "url": "https://www.dbooks.org/database-design-1227/"
+        },
+        {
+            "id": "1466",
+            "title": "C# Notes for Professionals",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/1466s.jpg",
+            "url": "https://www.dbooks.org/c-notes-for-professionals-1466/"
+        },
+        {
+            "id": "1499",
+            "title": "Laravel 5 Official Documentation",
+            "subtitle": "",
+            "authors": "Gary Blankenship",
+            "image": "https://www.dbooks.org/img/books/1499s.jpg",
+            "url": "https://www.dbooks.org/laravel-5-official-documentation-1499/"
+        },
+        {
+            "id": "1506",
+            "title": "Getting the Most from LINQPad Succinctly",
+            "subtitle": "",
+            "authors": "Jos\u00e9 Roberto Olivas Mendoza",
+            "image": "https://www.dbooks.org/img/books/1506s.jpg",
+            "url": "https://www.dbooks.org/getting-the-most-from-linqpad-succinctly-1506/"
+        },
+        {
+            "id": "1529",
+            "title": "Microsoft SQL Server Notes for Professionals",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/1529s.jpg",
+            "url": "https://www.dbooks.org/microsoft-sql-server-notes-for-professionals-1529/"
+        },
+        {
+            "id": "1531",
+            "title": "MongoDB Notes for Professionals",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/1531s.jpg",
+            "url": "https://www.dbooks.org/mongodb-notes-for-professionals-1531/"
+        },
+        {
+            "id": "1621140369",
+            "title": "Cloud Design Patterns",
+            "subtitle": "Prescriptive Architecture Guidance for Cloud Applications",
+            "authors": "Alex Homer, John Sharp, Larry Brader, Masashi Narumoto, Trent Swanson",
+            "image": "https://www.dbooks.org/img/books/1621140369s.jpg",
+            "url": "https://www.dbooks.org/cloud-design-patterns-1621140369/"
+        },
+        {
+            "id": "5591634854",
+            "title": "Power BI Succinctly",
+            "subtitle": "",
+            "authors": "Pierstefano Tucci",
+            "image": "https://www.dbooks.org/img/books/5591634854s.jpg",
+            "url": "https://www.dbooks.org/power-bi-succinctly-5591634854/"
+        },
+        {
+            "id": "5591650218",
+            "title": "Oracle Database Notes for Professionals",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/5591650218s.jpg",
+            "url": "https://www.dbooks.org/oracle-database-notes-for-professionals-5591650218/"
+        },
+        {
+            "id": "5592543586",
+            "title": "Ruby on Rails Notes for Professionals",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/5592543586s.jpg",
+            "url": "https://www.dbooks.org/ruby-on-rails-notes-for-professionals-5592543586/"
+        },
+        {
+            "id": "5605980453",
+            "title": "Learning MongoDB",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/5605980453s.jpg",
+            "url": "https://www.dbooks.org/learning-mongodb-5605980453/"
+        },
+        {
+            "id": "5605981682",
+            "title": "Learning C#",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/5605981682s.jpg",
+            "url": "https://www.dbooks.org/learning-c-5605981682/"
+        },
+        {
+            "id": "5605982413",
+            "title": "Learning Microsoft SQL Server",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/5605982413s.jpg",
+            "url": "https://www.dbooks.org/learning-microsoft-sql-server-5605982413/"
+        },
+        {
+            "id": "5606032932",
+            "title": "Learning Ruby on Rails",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/5606032932s.jpg",
+            "url": "https://www.dbooks.org/learning-ruby-on-rails-5606032932/"
+        },
+        {
+            "id": "3030598330",
+            "title": "Semantic Systems. In the Era of Knowledge Graphs",
+            "subtitle": "16th International Conference on Semantic Systems, SEMANTiCS 2020, Amsterdam, The Netherlands, September 7\u201310, 2020, Proceedings",
+            "authors": "Eva Blomqvist, Paul Groth, Victor de Boer, Tassilo Pellegrini, Mehwish Alam, Tobias K\u00e4fer, Peter Kieseberg, Sabrina Kirrane, Albert Mero\u00f1o-Pe\u00f1uela, Harshvardhan J. Pandit",
+            "image": "https://www.dbooks.org/img/books/3030598330s.jpg",
+            "url": "https://www.dbooks.org/semantic-systems-in-the-era-of-knowledge-graphs-3030598330/"
+        },
+        {
+            "id": "5635522906",
+            "title": "100 Laravel Quick Tips",
+            "subtitle": "",
+            "authors": "Povilas Korop",
+            "image": "https://www.dbooks.org/img/books/5635522906s.jpg",
+            "url": "https://www.dbooks.org/100-laravel-quick-tips-5635522906/"
+        },
+        {
+            "id": "1642000876",
+            "title": "C# Succinctly",
+            "subtitle": "",
+            "authors": "Joe Mayo",
+            "image": "https://www.dbooks.org/img/books/1642000876s.jpg",
+            "url": "https://www.dbooks.org/c-succinctly-1642000876/"
+        },
+        {
+            "id": "164200135X",
+            "title": "MongoDB 3 Succinctly",
+            "subtitle": "",
+            "authors": "Zoran Maksimovic",
+            "image": "https://www.dbooks.org/img/books/164200135Xs.jpg",
+            "url": "https://www.dbooks.org/mongodb-3-succinctly-164200135x/"
+        },
+        {
+            "id": "0735683042",
+            "title": "Configuration Manager Field Experience",
+            "subtitle": "Microsoft System Center",
+            "authors": "Rushi Faldu, Manish Raval, Brandon Linton, Kaushal Pandey, Mitch Tulloch",
+            "image": "https://www.dbooks.org/img/books/0735683042s.jpg",
+            "url": "https://www.dbooks.org/configuration-manager-field-experience-0735683042/"
+        },
+        {
+            "id": "3319496441",
+            "title": "Cloud-Based Benchmarking of Medical Image Analysis",
+            "subtitle": "",
+            "authors": "Allan Hanbury, Henning M\u00fcller, Georg Langs",
+            "image": "https://www.dbooks.org/img/books/3319496441s.jpg",
+            "url": "https://www.dbooks.org/cloud-based-benchmarking-of-medical-image-analysis-3319496441/"
+        },
+        {
+            "id": "3319893637",
+            "title": "Fundamental Approaches to Software Engineering",
+            "subtitle": "21st International Conference, FASE 2018, Held as Part of the European Joint Conferences on Theory and Practice of Software, ETAPS 2018, Thessaloniki, Greece, April 14-20, 2018, Proceedings",
+            "authors": "Alessandra Russo, Andy Sch\u00fcrr",
+            "image": "https://www.dbooks.org/img/books/3319893637s.jpg",
+            "url": "https://www.dbooks.org/fundamental-approaches-to-software-engineering-3319893637/"
+        },
+        {
+            "id": "3319652443",
+            "title": "The Cost of Insanity in Nineteenth-Century Ireland",
+            "subtitle": "Public, Voluntary and Private Asylum Care",
+            "authors": "Alice Mauger",
+            "image": "https://www.dbooks.org/img/books/3319652443s.jpg",
+            "url": "https://www.dbooks.org/the-cost-of-insanity-in-nineteenth-century-ireland-3319652443/"
+        },
+        {
+            "id": "1617294608",
+            "title": "RavenDB in Action",
+            "subtitle": "",
+            "authors": "Itamar Syn-Hershko",
+            "image": "https://www.dbooks.org/img/books/1617294608s.jpg",
+            "url": "https://www.dbooks.org/ravendb-in-action-1617294608/"
+        },
+        {
+            "id": "1849517169",
+            "title": "Learning Neo4j",
+            "subtitle": "Run blazingly fast queries on complex graph datasets with the power of the Neo4j graph database",
+            "authors": "Rik Van Bruggen",
+            "image": "https://www.dbooks.org/img/books/1849517169s.jpg",
+            "url": "https://www.dbooks.org/learning-neo4j-1849517169/"
+        },
+        {
+            "id": "1492057819",
+            "title": "Graph Algorithms",
+            "subtitle": "Practical Examples in Apache Spark and Neo4j",
+            "authors": "Mark Needham, Amy Hodler",
+            "image": "https://www.dbooks.org/img/books/1492057819s.jpg",
+            "url": "https://www.dbooks.org/graph-algorithms-1492057819/"
+        },
+        {
+            "id": "3030332209",
+            "title": "Semantic Systems. The Power of AI and Knowledge Graphs",
+            "subtitle": "15th International Conference, SEMANTiCS 2019, Karlsruhe, Germany, September 9\u201312, 2019, Proceedings",
+            "authors": "Maribel Acosta, Philippe Cudr\u00e9-Mauroux, Maria Maleshkova, Tassilo Pellegrini, Harald Sack, York Sure-Vetter",
+            "image": "https://www.dbooks.org/img/books/3030332209s.jpg",
+            "url": "https://www.dbooks.org/semantic-systems-the-power-of-ai-and-knowledge-graphs-3030332209/"
+        },
+        {
+            "id": "3030380815",
+            "title": "Multiple-Aspect Analysis of Semantic Trajectories",
+            "subtitle": "First International Workshop, MASTER 2019, Held in Conjunction with ECML-PKDD 2019, W\u00fcrzburg, Germany, September 16, 2019, Proceedings",
+            "authors": "Konstantinos Tserpes, Chiara Renso, Stan Matwin",
+            "image": "https://www.dbooks.org/img/books/3030380815s.jpg",
+            "url": "https://www.dbooks.org/multiple-aspect-analysis-of-semantic-trajectories-3030380815/"
+        },
+        {
+            "id": "1491972394",
+            "title": "Think Data Structures",
+            "subtitle": "Algorithms and Information Retrieval in Java",
+            "authors": "Allen Downey",
+            "image": "https://www.dbooks.org/img/books/1491972394s.jpg",
+            "url": "https://www.dbooks.org/think-data-structures-1491972394/"
+        },
+        {
+            "id": "190643445X",
+            "title": "Defensive Database Programming with SQL Server",
+            "subtitle": "",
+            "authors": "Alex Kuznetsov",
+            "image": "https://www.dbooks.org/img/books/190643445Xs.jpg",
+            "url": "https://www.dbooks.org/defensive-database-programming-with-sql-server-190643445x/"
+        },
+        {
+            "id": "1906434905",
+            "title": "SQL Server Concurrency",
+            "subtitle": "Locking, Blocking and Row Versioning",
+            "authors": "Kalen Delaney",
+            "image": "https://www.dbooks.org/img/books/1906434905s.jpg",
+            "url": "https://www.dbooks.org/sql-server-concurrency-1906434905/"
+        },
+        {
+            "id": "190643462X",
+            "title": "SQL Server Hardware",
+            "subtitle": "",
+            "authors": "Glen Berry",
+            "image": "https://www.dbooks.org/img/books/190643462Xs.jpg",
+            "url": "https://www.dbooks.org/sql-server-hardware-190643462x/"
+        },
+        {
+            "id": "1255",
+            "title": "50 Ways to Avoid Find and Fix ASP.NET Performance Issues",
+            "subtitle": "",
+            "authors": "Anthony Dang, Kevin Griffin, David Haney, Troy Hunt, Anthony Van Der Hoorn, Michael Sorens, Matthew K, Dave Ward, Nick Harrison, Eremy Jarrell, Ian Dunkerly, Ted Jardine, Anthony Moorer, Julie Beller, Gregory Whatley, Shawn Binns, Bruce Norton, Steph",
+            "image": "https://www.dbooks.org/img/books/1255s.jpg",
+            "url": "https://www.dbooks.org/50-ways-to-avoid-find-and-fix-aspnet-performance-issues-1255/"
+        },
+        {
+            "id": "1256",
+            "title": "25 Secrets for Faster ASP.NET Applications",
+            "subtitle": "",
+            "authors": "Jeffrey Richter, John Robbins, David Conlin, Shmuel Englard, Ryan Riley, Chris Allen, Robert Haken, Mitchel Sellers, Niall Merrigan, Chris Hurley, Raghavendra, Matt Lee, Jp Toto, Michael Williamson, Tiago Pascoal",
+            "image": "https://www.dbooks.org/img/books/1256s.jpg",
+            "url": "https://www.dbooks.org/25-secrets-for-faster-aspnet-applications-1256/"
+        },
+        {
+            "id": "3319673955",
+            "title": "Bioinformatics for Evolutionary Biologists",
+            "subtitle": "A Problems Approach",
+            "authors": "Bernhard Haubold, Angelika B\u00f6rsch-Haubold",
+            "image": "https://www.dbooks.org/img/books/3319673955s.jpg",
+            "url": "https://www.dbooks.org/bioinformatics-for-evolutionary-biologists-3319673955/"
+        },
+        {
+            "id": "3319683012",
+            "title": "Applied Bioinformatics",
+            "subtitle": "An Introduction",
+            "authors": "Paul M. Selzer, Richard J. Marh\u00f6fer, Oliver Koch",
+            "image": "https://www.dbooks.org/img/books/3319683012s.jpg",
+            "url": "https://www.dbooks.org/applied-bioinformatics-3319683012/"
+        },
+        {
+            "id": "1509302433",
+            "title": "Configuring Microsoft SharePoint Hybrid Capabilities",
+            "subtitle": "",
+            "authors": "Jeremy Taylor, Neil Hodgkinson, Manas Biswas",
+            "image": "https://www.dbooks.org/img/books/1509302433s.jpg",
+            "url": "https://www.dbooks.org/configuring-microsoft-sharepoint-hybrid-capabilities-1509302433/"
+        },
+        {
+            "id": "1509304312",
+            "title": "Data Science with Microsoft SQL Server 2016",
+            "subtitle": "",
+            "authors": "Buck Woody, Danielle Dean, Debraj GuhaThakurta, Gagan Bansal, Matt Conners, Wee-Hyong Tok",
+            "image": "https://www.dbooks.org/img/books/1509304312s.jpg",
+            "url": "https://www.dbooks.org/data-science-with-microsoft-sql-server-2016-1509304312/"
+        },
+        {
+            "id": "1448",
+            "title": "Windows PowerShell Networking Guide",
+            "subtitle": "",
+            "authors": "Ed Wilson",
+            "image": "https://www.dbooks.org/img/books/1448s.jpg",
+            "url": "https://www.dbooks.org/windows-powershell-networking-guide-1448/"
+        },
+        {
+            "id": "1473",
+            "title": "SQL Server Metadata Succinctly",
+            "subtitle": "",
+            "authors": "Joseph D. Booth",
+            "image": "https://www.dbooks.org/img/books/1473s.jpg",
+            "url": "https://www.dbooks.org/sql-server-metadata-succinctly-1473/"
+        },
+        {
+            "id": "1426627378",
+            "title": "Marketing and Advertising Using Google",
+            "subtitle": "Targeting Your Advertising to the Right Audience",
+            "authors": "Google, Karl Barksdale",
+            "image": "https://www.dbooks.org/img/books/1426627378s.jpg",
+            "url": "https://www.dbooks.org/marketing-and-advertising-using-google-1426627378/"
+        },
+        {
+            "id": "1481",
+            "title": "Entity Framework Notes for Professionals",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/1481s.jpg",
+            "url": "https://www.dbooks.org/entity-framework-notes-for-professionals-1481/"
+        },
+        {
+            "id": "1495",
+            "title": "Hibernate Notes for Professionals",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/1495s.jpg",
+            "url": "https://www.dbooks.org/hibernate-notes-for-professionals-1495/"
+        },
+        {
+            "id": "1503",
+            "title": "Hadoop for Windows Succinctly",
+            "subtitle": "",
+            "authors": "Dave Vickers",
+            "image": "https://www.dbooks.org/img/books/1503s.jpg",
+            "url": "https://www.dbooks.org/hadoop-for-windows-succinctly-1503/"
+        },
+        {
+            "id": "1508",
+            "title": "PostgreSQL for Beginners",
+            "subtitle": "",
+            "authors": "Pavel Luzanov, Egor Rogov, Igor Levshin",
+            "image": "https://www.dbooks.org/img/books/1508s.jpg",
+            "url": "https://www.dbooks.org/postgresql-for-beginners-1508/"
+        },
+        {
+            "id": "1511",
+            "title": "The Little Redis Book",
+            "subtitle": "",
+            "authors": "Karl Seguin",
+            "image": "https://www.dbooks.org/img/books/1511s.jpg",
+            "url": "https://www.dbooks.org/the-little-redis-book-1511/"
+        },
+        {
+            "id": "1512",
+            "title": "The Little MongoDB Book",
+            "subtitle": "",
+            "authors": "Karl Seguin",
+            "image": "https://www.dbooks.org/img/books/1512s.jpg",
+            "url": "https://www.dbooks.org/the-little-mongodb-book-1512/"
+        },
+        {
+            "id": "1523",
+            "title": "A Graduate Course in Applied Cryptography",
+            "subtitle": "The indispensable tool used to protect information in computing systems",
+            "authors": "Dan Boneh, Victor Shoup",
+            "image": "https://www.dbooks.org/img/books/1523s.jpg",
+            "url": "https://www.dbooks.org/a-graduate-course-in-applied-cryptography-1523/"
+        },
+        {
+            "id": "1530",
+            "title": "MySQL Notes for Professionals",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/1530s.jpg",
+            "url": "https://www.dbooks.org/mysql-notes-for-professionals-1530/"
+        },
+        {
+            "id": "1542",
+            "title": "Biopython: Tutorial and Cookbook",
+            "subtitle": "Python Tools for Computational Molecular Biology",
+            "authors": "Jeff Chang, Brad Chapman, Iddo Friedberg, Thomas Hamelryck, Michiel de Hoon, Peter Cock, Tiago Antao, Eric Talevich, Bartek Wilczy\u0144ski",
+            "image": "https://www.dbooks.org/img/books/1542s.jpg",
+            "url": "https://www.dbooks.org/biopython-tutorial-and-cookbook-1542/"
+        },
+        {
+            "id": "1555",
+            "title": "Node.js Notes for Professionals",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/1555s.jpg",
+            "url": "https://www.dbooks.org/nodejs-notes-for-professionals-1555/"
+        },
+        {
+            "id": "007222438X",
+            "title": "Hacking Exposed Web Applications",
+            "subtitle": "",
+            "authors": "Joel Scambray, Mike Shema",
+            "image": "https://www.dbooks.org/img/books/007222438Xs.jpg",
+            "url": "https://www.dbooks.org/hacking-exposed-web-applications-007222438x/"
+        },
+        {
+            "id": "5591617902",
+            "title": "Webapps in Go",
+            "subtitle": "the anti textbook",
+            "authors": "Suraj Patil",
+            "image": "https://www.dbooks.org/img/books/5591617902s.jpg",
+            "url": "https://www.dbooks.org/webapps-in-go-5591617902/"
+        },
+        {
+            "id": "5591634217",
+            "title": "Application Insights Succinctly",
+            "subtitle": "",
+            "authors": "Roberto Albano",
+            "image": "https://www.dbooks.org/img/books/5591634217s.jpg",
+            "url": "https://www.dbooks.org/application-insights-succinctly-5591634217/"
+        },
+        {
+            "id": "5591634375",
+            "title": "Entity Framework Core Succinctly",
+            "subtitle": "",
+            "authors": "Ricardo Peres",
+            "image": "https://www.dbooks.org/img/books/5591634375s.jpg",
+            "url": "https://www.dbooks.org/entity-framework-core-succinctly-5591634375/"
+        },
+        {
+            "id": "5591647999",
+            "title": "PostgreSQL Notes for Professionals",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/5591647999s.jpg",
+            "url": "https://www.dbooks.org/postgresql-notes-for-professionals-5591647999/"
+        },
+        {
+            "id": "5591650568",
+            "title": "PHP Notes for Professionals",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/5591650568s.jpg",
+            "url": "https://www.dbooks.org/php-notes-for-professionals-5591650568/"
+        },
+        {
+            "id": "5591709940",
+            "title": "ember 101",
+            "subtitle": "Learn Ember.js with ember-cli",
+            "authors": "Adolfo Builes",
+            "image": "https://www.dbooks.org/img/books/5591709940s.jpg",
+            "url": "https://www.dbooks.org/ember-101-5591709940/"
+        },
+        {
+            "id": "5592543964",
+            "title": "SQL Notes for Professionals",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/5592543964s.jpg",
+            "url": "https://www.dbooks.org/sql-notes-for-professionals-5592543964/"
+        },
+        {
+            "id": "5592639909",
+            "title": "Go Web Development Succinctly",
+            "subtitle": "",
+            "authors": "Mark Lewin",
+            "image": "https://www.dbooks.org/img/books/5592639909s.jpg",
+            "url": "https://www.dbooks.org/go-web-development-succinctly-5592639909/"
+        },
+        {
+            "id": "5592640131",
+            "title": "Bing Maps V8 Succinctly",
+            "subtitle": "",
+            "authors": "James McCaffrey",
+            "image": "https://www.dbooks.org/img/books/5592640131s.jpg",
+            "url": "https://www.dbooks.org/bing-maps-v8-succinctly-5592640131/"
+        },
+        {
+            "id": "1906434263",
+            "title": "Protecting SQL Server Data",
+            "subtitle": "",
+            "authors": "John Magnabosco",
+            "image": "https://www.dbooks.org/img/books/1906434263s.jpg",
+            "url": "https://www.dbooks.org/protecting-sql-server-data-1906434263/"
+        },
+        {
+            "id": "5605975792",
+            "title": "Learning PHP",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/5605975792s.jpg",
+            "url": "https://www.dbooks.org/learning-php-5605975792/"
+        },
+        {
+            "id": "5605980240",
+            "title": "Learning Node.js",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/5605980240s.jpg",
+            "url": "https://www.dbooks.org/learning-nodejs-5605980240/"
+        },
+        {
+            "id": "5606040319",
+            "title": "Learning Bosun",
+            "subtitle": "",
+            "authors": "Stack Overflow Community",
+            "image": "https://www.dbooks.org/img/books/5606040319s.jpg",
+            "url": "https://www.dbooks.org/learning-bosun-5606040319/"
+        },
+        {
+            "id": "1492053112",
+            "title": "Web Application Security",
+            "subtitle": "Exploitation and Countermeasures for Modern Web Applications",
+            "authors": "Andrew Hoffman",
+            "image": "https://www.dbooks.org/img/books/1492053112s.jpg",
+            "url": "https://www.dbooks.org/web-application-security-1492053112/"
+        },
+        {
+            "id": "9811555540",
+            "title": "Evaluating Information Retrieval and Access Tasks",
+            "subtitle": "NTCIR&#039;s Legacy of Research Impact",
+            "authors": "Tetsuya Sakai, Douglas W. Oard, Noriko Kando",
+            "image": "https://www.dbooks.org/img/books/9811555540s.jpg",
+            "url": "https://www.dbooks.org/evaluating-information-retrieval-and-access-tasks-9811555540/"
+        },
+        {
+            "id": "0999773097",
+            "title": "Understanding the DOM",
+            "subtitle": "Document Object Model",
+            "authors": "Tania Rascia",
+            "image": "https://www.dbooks.org/img/books/0999773097s.jpg",
+            "url": "https://www.dbooks.org/understanding-the-dom-0999773097/"
+        },
+        {
+            "id": "150930195X",
+            "title": "Introducing Microsoft SQL Server 2016",
+            "subtitle": "Mission-Critical Applications, Deeper Insights, Hyperscale Cloud",
+            "authors": "Stacia Varga, Denny Cherry, Joseph D&#039;Antoni",
+            "image": "https://www.dbooks.org/img/books/150930195Xs.jpg",
+            "url": "https://www.dbooks.org/introducing-microsoft-sql-server-2016-150930195x/"
+        },
+        {
+            "id": "5635522059",
+            "title": "CakePHP Cookbook Documentation",
+            "subtitle": "Release 4.x",
+            "authors": "Cake Software Foundation",
+            "image": "https://www.dbooks.org/img/books/5635522059s.jpg",
+            "url": "https://www.dbooks.org/cakephp-cookbook-documentation-5635522059/"
+        },
+        {
+            "id": "1642002216",
+            "title": "Azure Durable Functions Succinctly",
+            "subtitle": "",
+            "authors": "Massimo Bonanni",
+            "image": "https://www.dbooks.org/img/books/1642002216s.jpg",
+            "url": "https://www.dbooks.org/azure-durable-functions-succinctly-1642002216/"
+        },
+        {
+            "id": "1430224215",
+            "title": "Exploring Lift",
+            "subtitle": "",
+            "authors": "Derek Chen-Becker, Marius Danciu, Tyler Weir",
+            "image": "https://www.dbooks.org/img/books/1430224215s.jpg",
+            "url": "https://www.dbooks.org/exploring-lift-1430224215/"
+        },
+        {
+            "id": "5651394705",
+            "title": "Spring Data Programming Cookbook",
+            "subtitle": "",
+            "authors": "JCGs",
+            "image": "https://www.dbooks.org/img/books/5651394705s.jpg",
+            "url": "https://www.dbooks.org/spring-data-programming-cookbook-5651394705/"
+        },
+        {
+            "id": "1492038253",
+            "title": "Designing Event-Driven Systems",
+            "subtitle": "Concepts and Patterns for Streaming Services with Apache Kafka",
+            "authors": "Ben Stopford",
+            "image": "https://www.dbooks.org/img/books/1492038253s.jpg",
+            "url": "https://www.dbooks.org/designing-event-driven-systems-1492038253/"
+        },
+        {
+            "id": "1642002283",
+            "title": "ASP.NET Core APIs Succinctly",
+            "subtitle": "",
+            "authors": "Dirk Strauss",
+            "image": "https://www.dbooks.org/img/books/1642002283s.jpg",
+            "url": "https://www.dbooks.org/aspnet-core-apis-succinctly-1642002283/"
+        }
+    ]
+}
