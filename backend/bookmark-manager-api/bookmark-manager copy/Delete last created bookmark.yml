@@ -1,0 +1,18 @@
+info:
+  name: Delete last created bookmark
+  type: http
+  seq: 3
+
+http:
+  method: DELETE
+  url: http://localhost:4000/bookmarks/last
+  body:
+    type: json
+    data: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

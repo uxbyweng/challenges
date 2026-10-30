@@ -1,0 +1,23 @@
+info:
+  name: Create bookmark
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:4000/bookmarks
+  body:
+    type: json
+    data: |-
+      {
+          "url": "http://www.taz.de",
+          "title": "Taz",
+          "tag": "news"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
