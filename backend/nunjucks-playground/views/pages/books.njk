@@ -1,0 +1,11 @@
+{% extends "layouts/base.njk" %}
+{% from "components/bookCard.njk" import bookCard %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  <h1>Bools</h1>
+  {% for book in books %}
+    {{ bookCard(book) }}
+  {% endfor %}
+{% endblock %}

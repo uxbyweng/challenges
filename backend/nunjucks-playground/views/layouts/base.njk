@@ -1,0 +1,28 @@
+{# Basis-Layout: alle Seiten erben hiervon mit {% extends %} #}
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Nunjucks Playground{% endblock %}</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Start</a>
+        <a href="/tags">Tags</a>
+        <a href="/books">Books</a>
+      </nav>
+    </header>
+
+    <main>
+      {# Hier füllen die Kind-Templates ihren Inhalt ein #}
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+      {% block footer %}<small>Nunjucks Playground</small>{% endblock %}
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+body { font-family: system-ui, sans-serif; max-width: 720px; margin: 0 auto; padding: 1rem; line-height: 1.5; }
+nav a { margin-right: 1rem; }
+.card { border: 1px solid #ccc; border-radius: 6px; padding: .5rem 1rem; margin: .5rem 0; }
+footer { margin-top: 2rem; color: #666; }

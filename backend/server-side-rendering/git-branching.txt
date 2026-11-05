@@ -1,0 +1,66 @@
+1. Feature Branches erstellen
+
+git switch main
+git pull          
+git switch -c feature/book-list  
+
+Code ändern ...
+
+git add .
+git commit -m "Add book list rendering"
+git push -u origin feature/book-list   (beim ersten Push)
+
+Dann:
+
+2. PR erstellen
+
+Feature-Branch pushen
+git push -u origin feature/book-list
+
+Repo auf GitHub:
+-> gelben Banner "Compare & pull request" anklicken
+
+
+3. Review und Änderungen
+
+Änderungen ansehen -> Tab Files changed 
+
+bei weiteren anpassungen im branch:
+git add .
+git commit -m "Fix empty state in book list"
+git push
+
+-> Der PR aktualisiert sich automatisch. Du brauchst keinen neuen PR.
+
+
+4. Mergen
+
+Create a merge commit 
+-> Alle Commits bleiben, plus ein Merge-Commit                            
+
+
+
+5. Lokal aufräumen
+
+git switch main
+git pull
+git branch -d feature/book-list
+
+
+
+
+6. Bei Merge-Konflikt: 
+
+GitHub zeigt "This branch has conflicts". 
+-> Hole dann main in deinen Branch:
+
+git switch feature/book-list
+git fetch
+git merge origin/main
+
+# Konflikte in den Dateien lösen (<<<<<<< / >>>>>>> Marker entfernen)
+
+git add .
+git commit
+git push
+

@@ -1,0 +1,7 @@
+{# Eine Macro ist wie eine Funktion für HTML #}
+{% macro bookCard(book) %}
+  <article class="card">
+    <h3>{{ book.title }}</h3>
+    <p>{{ book.author }} ({{ book.year }})</p>
+  </article>
+{% endmacro %}

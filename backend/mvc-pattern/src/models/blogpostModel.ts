@@ -43,7 +43,7 @@ const seedPosts: Post[] = [
 const PAGE_SIZE = 2;
 
 export function getBlogposts(authorFilter: string, sortBy: SortOrder, page: number) {
-    const filteredPosts = authorFilter ? seedPosts.filter((post) => post.author.toLowerCase().includes(authorFilter.toLowerCase())) : seedPosts;
+    const filteredPosts = authorFilter ? getAllPosts().filter((post) => post.author.toLowerCase().includes(authorFilter.toLowerCase())) : getAllPosts();
 
     const sortedPosts = [...filteredPosts].sort((a, b) => {
         if (sortBy === "oldest") {
@@ -61,5 +61,32 @@ export function getBlogposts(authorFilter: string, sortBy: SortOrder, page: numb
 }
 
 export function getBlogpostBySlug(slug: string): Post | undefined {
-    return seedPosts.find((post) => slugify(post.title) === slug);
+    return getAllPosts().find((post) => slugify(post.title) === slug);
+}
+
+let posts: Post[] = seedPosts;
+
+export function getAllPosts(): Post[] {
+    return posts;
+}
+
+export function writePosts(newPosts: Post[]) {
+    posts = newPosts;
+}
+
+export function addPost(post: Post) {
+    const all = getAllPosts();
+    writePosts([...all, post]);
+}
+
+export function updatePost(slug: string, changes: Partial<Post>) {
+    const all = getAllPosts();
+    const updated = all.map((post) => (slugify(post.title) === slug ? { ...post, ...changes } : post));
+    writePosts(updated);
+}
+
+export function deletePost(slug: string) {
+    const all = getAllPosts();
+    const remaining = all.filter((post) => slugify(post.title) !== slug);
+    writePosts(remaining);
 }

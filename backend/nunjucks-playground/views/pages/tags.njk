@@ -1,0 +1,31 @@
+{% extends "layouts/base.njk" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  <h1>Tags</h1>
+
+  <h2>for</h2>
+  <ul>
+    {% for fruit in fruits %}
+      <li>{{ loop.index }}. {{ fruit }}</li>
+    {% else %}
+      <li>Keine Früchte</li>
+    {% endfor %}
+  </ul>
+
+  <h2>if / elif / else</h2>
+  {% if loggedIn %}
+    <p>Eingeloggt als {{ user.name }} ({{ user.role }})</p>
+  {% else %}
+    <p>Bitte einloggen</p>
+  {% endif %}
+
+  <h2>set</h2>
+  {% set greeting = "Moin" %}
+  <p>{{ greeting }}, {{ user.name | upper }}</p>
+
+  <h2>autoescape vs. safe</h2>
+  <p>Escaped: {{ htmlText }}</p>
+  <p>Mit safe: {{ htmlText | safe }}</p>
+{% endblock %}

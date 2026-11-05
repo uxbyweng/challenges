@@ -55,7 +55,3 @@ export const showAbout = (_req: Request, res: Response) => {
 export const showContact = (_req: Request, res: Response) => {
     res.render("contact.html");
 };
-
-export const showExamplePost = (_req: Request, res: Response) => {
-    res.render("postExample.html");
-};
