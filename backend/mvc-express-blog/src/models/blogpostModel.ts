@@ -1,3 +1,4 @@
+import { db } from "../db/database";
 import { slugify } from "../utils/slugify-utils";
 
 export interface Post {
@@ -10,35 +11,6 @@ export interface Post {
 }
 
 export type SortOrder = "newest" | "oldest";
-
-const seedPosts: Post[] = [
-    {
-        title: "Black: The Absence, Not the Presence, of Color",
-        image: "colorful-umbrella.jpg",
-        author: "Peter Parker",
-        createdAt: 1743120000,
-        teaser: "Scientifically, black is not a color but rather the absence of all colors, occurring when an object absorbs nearly all light wavelengths instead of reflecting them.",
-        content:
-            "<p>When you think about the rainbow, you see a vibrant spectrum of hues. But black does not appear in that spectrum the same way red or blue does.</p><p>From a scientific perspective, black is usually the absence of visible light, not a reflected wavelength.</p>",
-    },
-    {
-        title: "Flowers: Nature's Muse for Design",
-        image: "flowers.jpg",
-        author: "Peter Parker",
-        createdAt: 1745452800,
-        teaser: "Flowers inspire design with their color palettes, structure, and balance between repetition and variation.",
-        content: "<p>Designers borrow from flowers all the time: layered composition, contrasting accents, and natural hierarchy.</p>",
-    },
-    {
-        title: "UDesign's Harmony: Core Purpose and Supporting Details",
-        image: "sailing.jpg",
-        author: "Peter Parker",
-        createdAt: 1748736000,
-        teaser: "Strong design starts with one clear core idea, then adds supporting details that reinforce it.",
-        content:
-            "<p>A useful mental model is major and minor elements. Major elements communicate the main point, minor elements support it without stealing focus.</p>",
-    },
-];
 
 const PAGE_SIZE = 2;
 
@@ -64,29 +36,48 @@ export function getBlogpostBySlug(slug: string): Post | undefined {
     return getAllPosts().find((post) => slugify(post.title) === slug);
 }
 
-let posts: Post[] = seedPosts;
-
+// alle Posts aus Tabelle blog_entries auslesen
 export function getAllPosts(): Post[] {
-    return posts;
+    return db.query("SELECT title, image, author, createdAt, teaser, content FROM blog_entries").all() as Post[];
 }
 
-export function writePosts(newPosts: Post[]) {
-    posts = newPosts;
+// passende id finden
+function findIdBySlug(slug: string): number | undefined {
+    const rows = db.query("SELECT id, title FROM blog_entries").all() as { id: number; title: string }[];
+    return rows.find((row) => slugify(row.title) === slug)?.id;
 }
 
+// Neuen Post speichern
 export function addPost(post: Post) {
-    const all = getAllPosts();
-    writePosts([...all, post]);
+    db.query("INSERT INTO blog_entries (title, image, author, createdAt, teaser, content) VALUES (?, ?, ?, ?, ?, ?)").run(
+        post.title,
+        post.image,
+        post.author,
+        post.createdAt,
+        post.teaser,
+        post.content,
+    );
 }
 
 export function updatePost(slug: string, changes: Partial<Post>) {
-    const all = getAllPosts();
-    const updated = all.map((post) => (slugify(post.title) === slug ? { ...post, ...changes } : post));
-    writePosts(updated);
+    const id = findIdBySlug(slug);
+    const current = getBlogpostBySlug(slug);
+    if (id === undefined || !current) return;
+
+    const post = { ...current, ...changes };
+    db.query("UPDATE blog_entries SET title = ?, image = ?, author = ?, createdAt = ?, teaser = ?, content = ? WHERE id = ?").run(
+        post.title,
+        post.image,
+        post.author,
+        post.createdAt,
+        post.teaser,
+        post.content,
+        id,
+    );
 }
 
 export function deletePost(slug: string) {
-    const all = getAllPosts();
-    const remaining = all.filter((post) => slugify(post.title) !== slug);
-    writePosts(remaining);
+    const id = findIdBySlug(slug);
+    if (id === undefined) return;
+    db.query("DELETE FROM blog_entries WHERE id = ?").run(id);
 }

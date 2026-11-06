@@ -3,3 +3,6 @@
 
 node_modules
 
+
+# SQLite-Datenbank (wird mit "bun src/db/seed.ts" aus seeddb.sql erzeugt)
+src/db/*.db

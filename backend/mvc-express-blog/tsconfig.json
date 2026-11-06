@@ -5,7 +5,7 @@
 
     "target": "esnext",
     "lib": ["esnext"],
-    "types": ["node"],
+    "types": ["node", "bun"],
     "module": "esnext",
 
     "esModuleInterop": true,

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",
-    "start": "tsx src/app.ts",
+    "start": "bun src/app.ts",
     "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +19,7 @@
     "sanitize-html": "^2.18.1"
   },
   "devDependencies": {
+    "@types/bun": "^1.4.4",
     "@types/express": "^5.0.6",
     "@types/node": "^24.10.1",
     "@types/nunjucks": "^3.2.6",
