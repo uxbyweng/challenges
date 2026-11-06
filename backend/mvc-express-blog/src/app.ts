@@ -1,4 +1,4 @@
-import { closeDB } from "./db/database"; // Import öffnet automatisch die Verbindung
+import { connectDB, closeDB } from "./db/database";
 import express from "express";
 import nunjucks from "nunjucks";
 import path from "node:path";
@@ -27,6 +27,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", blogpostRouter); // public
 app.use("/", adminRoutes); // admin
+
+// Datenbank verbinden, bevor der Server Anfragen annimmt
+connectDB();
 
 const port = Number(process.env.PORT) || 1234;
 

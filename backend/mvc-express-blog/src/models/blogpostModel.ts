@@ -1,8 +1,9 @@
-import { db } from "../db/database";
+import { getDB } from "../db/database";
 import { slugify } from "../utils/slugify-utils";
 
 export interface Post {
     title: string;
+    slug: string;
     image: string;
     author: string;
     createdAt: number;
@@ -38,25 +39,20 @@ export function getBlogpostBySlug(slug: string): Post | undefined {
 
 // alle Posts aus Tabelle blog_entries auslesen
 export function getAllPosts(): Post[] {
-    return db.query("SELECT title, image, author, createdAt, teaser, content FROM blog_entries").all() as Post[];
+    return getDB().query("SELECT title, slug, image, author, createdAt, teaser, content FROM blog_entries").all() as Post[];
 }
 
 // passende id finden
 function findIdBySlug(slug: string): number | undefined {
-    const rows = db.query("SELECT id, title FROM blog_entries").all() as { id: number; title: string }[];
+    const rows = getDB().query("SELECT id, title FROM blog_entries").all() as { id: number; title: string }[];
     return rows.find((row) => slugify(row.title) === slug)?.id;
 }
 
 // Neuen Post speichern
 export function addPost(post: Post) {
-    db.query("INSERT INTO blog_entries (title, image, author, createdAt, teaser, content) VALUES (?, ?, ?, ?, ?, ?)").run(
-        post.title,
-        post.image,
-        post.author,
-        post.createdAt,
-        post.teaser,
-        post.content,
-    );
+    getDB()
+        .query("INSERT INTO blog_entries (title, slug, image, author, createdAt, teaser, content) VALUES (?, ?, ?, ?, ?, ?, ?)")
+        .run(post.title, post.slug, post.image, post.author, post.createdAt, post.teaser, post.content);
 }
 
 export function updatePost(slug: string, changes: Partial<Post>) {
@@ -65,19 +61,13 @@ export function updatePost(slug: string, changes: Partial<Post>) {
     if (id === undefined || !current) return;
 
     const post = { ...current, ...changes };
-    db.query("UPDATE blog_entries SET title = ?, image = ?, author = ?, createdAt = ?, teaser = ?, content = ? WHERE id = ?").run(
-        post.title,
-        post.image,
-        post.author,
-        post.createdAt,
-        post.teaser,
-        post.content,
-        id,
-    );
+    getDB()
+        .query("UPDATE blog_entries SET title = ?, slug = ?, image = ?, author = ?, createdAt = ?, teaser = ?, content = ? WHERE id = ?")
+        .run(post.title, post.slug, post.image, post.author, post.createdAt, post.teaser, post.content, id);
 }
 
 export function deletePost(slug: string) {
     const id = findIdBySlug(slug);
     if (id === undefined) return;
-    db.query("DELETE FROM blog_entries WHERE id = ?").run(id);
+    getDB().query("DELETE FROM blog_entries WHERE id = ?").run(id);
 }

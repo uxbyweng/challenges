@@ -20,17 +20,19 @@ const readPostForm = (req: Request): { error: string } | { fields: Omit<Post, "c
     const image = readField(req, "image");
     const teaser = readField(req, "teaser");
     const content = sanitizeContent(readField(req, "content"));
+    // Slug einmal aus dem Titel berechnen: wird gespeichert und für die URL genutzt
+    const slug = slugify(title);
 
     if (!title || !author || !image || !teaser || !content) {
         return { error: "All fields are required." };
     }
-    if (!slugify(title)) {
+    if (!slug) {
         return { error: "The title must contain letters or numbers." };
     }
     if (!/^[\w.-]+$/.test(image)) {
         return { error: "Image must be a file name like flowers.jpg." };
     }
-    return { fields: { title, author, image, teaser, content } };
+    return { fields: { title, slug, author, image, teaser, content } };
 };
 
 export const renderAllPosts = (_req: Request, res: Response) => {

@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS blog_entries;
 CREATE TABLE blog_entries (
   id INTEGER PRIMARY KEY AUTOINCREMENT, 
         title TEXT NOT NULL,
+        slug TEXT NOT NULL UNIQUE,
         image TEXT NOT NULL,
         author TEXT NOT NULL,
         createdAt INTEGER NOT NULL, 
@@ -15,9 +16,10 @@ CREATE TABLE blog_entries (
 );
 
 -- Startdaten 
-INSERT INTO blog_entries (title, image, author, createdAt, teaser, content) VALUES
+INSERT INTO blog_entries (title, slug, image, author, createdAt, teaser, content) VALUES
   (
     'Black: The Absence, Not the Presence, of Color',
+    'black-the-absence-not-the-presence-of-color',
     'colorful-umbrella.jpg',
     'Peter Parker',
     1743120000,
@@ -26,6 +28,7 @@ INSERT INTO blog_entries (title, image, author, createdAt, teaser, content) VALU
   ),
   (
     'Flowers: Nature''s Muse for Design',
+    'flowers-nature-s-muse-for-design',
     'flowers.jpg',
     'Peter Parker',
     1745452800,
@@ -34,6 +37,7 @@ INSERT INTO blog_entries (title, image, author, createdAt, teaser, content) VALU
   ),
   (
     'Design''s Harmony: Core Purpose and Supporting Details',
+    'design-s-harmony-core-purpose-and-supporting-details',
     'sailing.jpg',
     'Peter Parker',
     1748736000,

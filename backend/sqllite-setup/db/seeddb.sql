@@ -1,14 +1,13 @@
 -- seeddb.sql
--- Setzt die Datenbank auf einen bekannten Startzustand zurück.
--- ACHTUNG: DROP TABLE löscht alle vorhandenen Einträge!
 
--- 1. Alte Tabelle entfernen, falls es sie gibt (macht das Skript beliebig oft ausführbar)
+-- Alte Tabelle entfernen, falls es sie gibt (macht das Skript beliebig oft ausführbar)
 DROP TABLE IF EXISTS blog_entries;
 
--- 2. Tabelle neu anlegen
+-- Tabelle neu anlegen
 CREATE TABLE blog_entries (
   id INTEGER PRIMARY KEY AUTOINCREMENT, -- wird automatisch hochgezählt: 1, 2, 3 ...
   title TEXT NOT NULL,
+  slug TEXT NOT NULL UNIQUE,
   teaser TEXT NOT NULL,                 -- kurzer Anreißer für die Übersicht
   author TEXT NOT NULL,
   createdAt TEXT NOT NULL,              -- Datum als Text im Format JJJJ-MM-TT
@@ -16,8 +15,7 @@ CREATE TABLE blog_entries (
   content TEXT NOT NULL
 );
 
--- 3. Startdaten einfügen (mehrere Zeilen in einem INSERT, durch Komma getrennt)
--- Die id lassen wir weg, die vergibt SQLite selbst.
+-- Startdaten 
 INSERT INTO blog_entries (title, teaser, author, createdAt, image, content) VALUES
   (
     'Mein erster Tag im Bootcamp',
