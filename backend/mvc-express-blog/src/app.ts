@@ -16,13 +16,15 @@ const projectRoot = path.resolve(__dirname, "..");
 const assetsDir = path.join(projectRoot, "src", "assets");
 const cssDir = path.join(projectRoot, "src", "css");
 
-// autoescape: true -> wandelt <, >, " in  harmlose Zeichen um.
-nunjucks.configure(projectViews, { autoescape: true, express: app });
+// global verwendbare Jahreszahl deklarieren -> {{ Jahreszahl}}
+const env = nunjucks.configure(projectViews, { autoescape: true, express: app });
+env.addGlobal("Jahreszahl", new Date().getFullYear());
 
 // express.static liefert Dateien direkt aus: /assets/flowers.jpg -> src/assets/flowers.jpg
 app.use("/assets", express.static(assetsDir));
 app.use("/css", express.static(cssDir));
 
+// title=Hallo&author=Karsten  -> { title: "Hallo", author: "Karsten" }
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", blogpostRouter); // public

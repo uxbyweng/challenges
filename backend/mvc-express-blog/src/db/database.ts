@@ -11,7 +11,7 @@ let db: Database | undefined;
 // db verbindung 'connectDB' muss nur einmal beim Start geöffnet werden
 // und kann dann überall über getDB() verwenden werden
 export function connectDB() {
-    // Schon verbunden? Dann nichts doppelt öffnen.
+    // wenn schon verbunden wieder schließen
     if (db) return db;
 
     console.log("Datenbankverbindung wird geöffnet...");
@@ -20,7 +20,7 @@ export function connectDB() {
     // Fremdschlüssel-Prüfung einschalten (SQLite macht das nicht von allein)
     db.run("PRAGMA foreign_keys = ON");
 
-    // Tabellen anlegen, falls es sie noch nicht gibt.
+    // 'authors' Tabelle anlegen (wenn noch nicht vorhanden)
     db.run(`
         CREATE TABLE IF NOT EXISTS authors (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -28,6 +28,7 @@ export function connectDB() {
         )
     `);
 
+    // 'blog_entries' Tabelle anlegen (wenn noch nicht vorhanden)
     db.run(`
         CREATE TABLE IF NOT EXISTS blog_entries (
             id INTEGER PRIMARY KEY AUTOINCREMENT,

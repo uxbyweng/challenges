@@ -16,12 +16,12 @@ const readField = (req: Request, name: string): string => {
 
 const readPostForm = (req: Request): { error: string } | { fields: Omit<Post, "createdAt" | "author"> } => {
     const title = readField(req, "title");
-    // Das Dropdown schickt die id des Autors
+    // Dropdown schickt id des Autors
     const authorId = Number(readField(req, "authorId"));
     const image = readField(req, "image");
     const teaser = readField(req, "teaser");
     const content = sanitizeContent(readField(req, "content"));
-    // Slug einmal aus dem Titel berechnen: wird gespeichert und für die URL genutzt
+    // Slug  aus Titel berechnen: wird gespeichert und für die URL genutzt
     const slug = slugify(title);
 
     if (!title || !image || !teaser || !content) {
