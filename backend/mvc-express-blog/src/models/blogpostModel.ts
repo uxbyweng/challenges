@@ -51,8 +51,18 @@ function findIdBySlug(slug: string): number | undefined {
 // Neuen Post speichern
 export function addPost(post: Post) {
     getDB()
-        .query("INSERT INTO blog_entries (title, slug, image, author, createdAt, teaser, content) VALUES (?, ?, ?, ?, ?, ?, ?)")
-        .run(post.title, post.slug, post.image, post.author, post.createdAt, post.teaser, post.content);
+        .query(
+            "INSERT INTO blog_entries (title, slug, image, author, createdAt, teaser, content) VALUES ($title, $slug, $image, $author, $createdAt, $teaser, $content)",
+        )
+        .run({
+            title: post.title,
+            slug: post.slug,
+            image: post.image,
+            author: post.author,
+            createdAt: post.createdAt,
+            teaser: post.teaser,
+            content: post.content,
+        });
 }
 
 export function updatePost(slug: string, changes: Partial<Post>) {
@@ -62,12 +72,23 @@ export function updatePost(slug: string, changes: Partial<Post>) {
 
     const post = { ...current, ...changes };
     getDB()
-        .query("UPDATE blog_entries SET title = ?, slug = ?, image = ?, author = ?, createdAt = ?, teaser = ?, content = ? WHERE id = ?")
-        .run(post.title, post.slug, post.image, post.author, post.createdAt, post.teaser, post.content, id);
+        .query(
+            "UPDATE blog_entries SET title = $title, slug = $slug, image = $image, author = $author, createdAt = $createdAt, teaser = $teaser, content = $content WHERE id = $id",
+        )
+        .run({
+            title: post.title,
+            slug: post.slug,
+            image: post.image,
+            author: post.author,
+            createdAt: post.createdAt,
+            teaser: post.teaser,
+            content: post.content,
+            id,
+        });
 }
 
 export function deletePost(slug: string) {
     const id = findIdBySlug(slug);
     if (id === undefined) return;
-    getDB().query("DELETE FROM blog_entries WHERE id = ?").run(id);
+    getDB().query("DELETE FROM blog_entries WHERE id = $id").run({ id });
 }
