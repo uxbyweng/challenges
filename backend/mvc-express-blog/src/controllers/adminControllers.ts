@@ -29,9 +29,12 @@ const readPostForm = (req: Request): { error: string } | { fields: Omit<Post, "c
     if (!slug) {
         return { error: "The title must contain letters or numbers." };
     }
-    if (!/^[\w.-]+$/.test(image)) {
-        return { error: "Image must be a file name like flowers.jpg." };
+    const isLocalFile = /^[\w.-]+$/.test(image);
+    const isAbsoluteUrl = /^https?:\/\/[^\s"'()\\<>]+$/.test(image);
+    if (!isLocalFile && !isAbsoluteUrl) {
+        return { error: "Image must be a file name like flowers.jpg or a full http(s) URL." };
     }
+
     return { fields: { title, slug, author, image, teaser, content } };
 };
 
