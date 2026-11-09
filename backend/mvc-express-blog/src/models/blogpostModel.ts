@@ -64,13 +64,14 @@ export function addPost(post: Post) {
         });
 }
 
-export function updatePost(slug: string, changes: Partial<Post>) {
+// gibt zurück, ob eine Zeile geändert wurde
+export async function updatePost(slug: string, changes: Partial<Post>): Promise<boolean> {
     const id = findIdBySlug(slug);
     const current = getBlogpostBySlug(slug);
-    if (id === undefined || !current) return;
+    if (id === undefined || !current) return false;
 
     const post = { ...current, ...changes };
-    getDB()
+    const result = getDB()
         .query(
             "UPDATE blog_entries SET title = $title, slug = $slug, image = $image, author = $author, createdAt = $createdAt, teaser = $teaser, content = $content WHERE id = $id",
         )
@@ -84,10 +85,13 @@ export function updatePost(slug: string, changes: Partial<Post>) {
             content: post.content,
             id,
         });
+    return result.changes > 0;
 }
 
-export function deletePost(slug: string) {
+// gibt zurück, ob eine Zeile gelöscht wurde
+export async function deletePost(slug: string): Promise<boolean> {
     const id = findIdBySlug(slug);
-    if (id === undefined) return;
-    getDB().query("DELETE FROM blog_entries WHERE id = $id").run({ id });
+    if (id === undefined) return false;
+    const result = getDB().query("DELETE FROM blog_entries WHERE id = $id").run({ id });
+    return result.changes > 0;
 }

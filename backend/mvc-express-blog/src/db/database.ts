@@ -17,14 +17,24 @@ export function connectDB() {
     console.log("Datenbankverbindung wird geöffnet...");
     db = new Database(DB_FILE, { create: true, strict: true });
 
-    // Tabelle anlegen, falls es sie noch nicht gibt.
+    // Fremdschlüssel-Prüfung einschalten (SQLite macht das nicht von allein)
+    db.run("PRAGMA foreign_keys = ON");
+
+    // Tabellen anlegen, falls es sie noch nicht gibt.
+    db.run(`
+        CREATE TABLE IF NOT EXISTS authors (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE
+        )
+    `);
+
     db.run(`
         CREATE TABLE IF NOT EXISTS blog_entries (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT NOT NULL,
             slug TEXT NOT NULL UNIQUE,
             image TEXT NOT NULL,
-            author TEXT NOT NULL,
+            author_id INTEGER NOT NULL REFERENCES authors(id),
             createdAt INTEGER NOT NULL,
             teaser TEXT NOT NULL,
             content TEXT NOT NULL

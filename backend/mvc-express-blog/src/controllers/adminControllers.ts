@@ -80,7 +80,7 @@ export const renderExistingPostForm = (req: Request, res: Response) => {
     res.render("adminForm.html", { heading: "Edit post", action: `/admin/posts/${slug}`, post });
 };
 
-export const saveEditedPost = (req: Request, res: Response) => {
+export const saveEditedPost = async (req: Request, res: Response) => {
     const slug = readSlug(req);
     if (!getBlogpostBySlug(slug)) {
         res.status(404).send("Post not found");
@@ -99,17 +99,22 @@ export const saveEditedPost = (req: Request, res: Response) => {
         return;
     }
 
-    updatePost(slug, result.fields);
-    res.redirect("/admin");
-};
-
-export const deletePost = (req: Request, res: Response) => {
-    const slug = readSlug(req);
-    if (!getBlogpostBySlug(slug)) {
+    const changed = await updatePost(slug, result.fields);
+    if (!changed) {
         res.status(404).send("Post not found");
         return;
     }
 
-    deletePostFromModel(slug);
+    res.redirect("/admin");
+};
+
+export const deletePost = async (req: Request, res: Response) => {
+    const slug = readSlug(req);
+    const deleted = await deletePostFromModel(slug);
+    if (!deleted) {
+        res.status(404).send("Post not found");
+        return;
+    }
+
     res.redirect("/admin");
 };
