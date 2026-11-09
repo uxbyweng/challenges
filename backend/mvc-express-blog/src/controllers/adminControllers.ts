@@ -1,5 +1,5 @@
 import { type Request, type Response } from "express";
-import { getAllPosts, getBlogpostBySlug, addPost, updatePost, deletePost as deletePostFromModel, type Post } from "../models/blogpostModel";
+import { getAllPosts, getAllAuthors, getBlogpostBySlug, addPost, updatePost, deletePost as deletePostFromModel, type Post } from "../models/blogpostModel";
 import { slugify } from "../utils/slugify-utils";
 import { formatDate } from "../utils/date-utils";
 import { sanitizeContent } from "../utils/sanitize-utils";
@@ -14,28 +14,33 @@ const readField = (req: Request, name: string): string => {
     return typeof value === "string" ? value.trim() : "";
 };
 
-const readPostForm = (req: Request): { error: string } | { fields: Omit<Post, "createdAt"> } => {
+const readPostForm = (req: Request): { error: string } | { fields: Omit<Post, "createdAt" | "author"> } => {
     const title = readField(req, "title");
-    const author = readField(req, "author");
+    // Das Dropdown schickt die id des Autors
+    const authorId = Number(readField(req, "authorId"));
     const image = readField(req, "image");
     const teaser = readField(req, "teaser");
     const content = sanitizeContent(readField(req, "content"));
     // Slug einmal aus dem Titel berechnen: wird gespeichert und für die URL genutzt
     const slug = slugify(title);
 
-    if (!title || !author || !image || !teaser || !content) {
+    if (!title || !image || !teaser || !content) {
         return { error: "All fields are required." };
+    }
+    if (!getAllAuthors().some((author) => author.id === authorId)) {
+        return { error: "Please select an author from the list." };
     }
     if (!slug) {
         return { error: "The title must contain letters or numbers." };
     }
+    // auch absolute URLs zulassen
     const isLocalFile = /^[\w.-]+$/.test(image);
     const isAbsoluteUrl = /^https?:\/\/[^\s"'()\\<>]+$/.test(image);
     if (!isLocalFile && !isAbsoluteUrl) {
         return { error: "Image must be a file name like flowers.jpg or a full http(s) URL." };
     }
 
-    return { fields: { title, slug, author, image, teaser, content } };
+    return { fields: { title, slug, authorId, image, teaser, content } };
 };
 
 export const renderAllPosts = (_req: Request, res: Response) => {
@@ -50,7 +55,7 @@ export const renderAllPosts = (_req: Request, res: Response) => {
 };
 
 export const renderEmptyNewPostForm = (_req: Request, res: Response) => {
-    res.render("adminForm.html", { heading: "New post", action: "/admin/posts" });
+    res.render("adminForm.html", { heading: "New post", action: "/admin/posts", authors: getAllAuthors() });
 };
 
 export const createNewPost = (req: Request, res: Response) => {
@@ -77,7 +82,7 @@ export const renderExistingPostForm = (req: Request, res: Response) => {
         return;
     }
 
-    res.render("adminForm.html", { heading: "Edit post", action: `/admin/posts/${slug}`, post });
+    res.render("adminForm.html", { heading: "Edit post", action: `/admin/posts/${slug}`, post, authors: getAllAuthors() });
 };
 
 export const saveEditedPost = async (req: Request, res: Response) => {

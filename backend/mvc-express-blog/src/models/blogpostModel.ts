@@ -5,9 +5,15 @@ export interface Post {
     slug: string;
     image: string;
     author: string;
+    authorId: number;
     createdAt: number;
     teaser: string;
     content: string;
+}
+
+export interface Author {
+    id: number;
+    name: string;
 }
 
 export type SortOrder = "newest" | "oldest";
@@ -41,11 +47,16 @@ export function getAllPosts(): Post[] {
     return getDB()
         .query(
             `SELECT blog_entries.title, blog_entries.slug, blog_entries.image, authors.name AS author,
-                    blog_entries.createdAt, blog_entries.teaser, blog_entries.content
+                    blog_entries.author_id AS authorId, blog_entries.createdAt, blog_entries.teaser, blog_entries.content
              FROM blog_entries
              JOIN authors ON authors.id = blog_entries.author_id`,
         )
         .all() as Post[];
+}
+
+// alle Autoren für das Dropdown im Admin-Formular
+export function getAllAuthors(): Author[] {
+    return getDB().query("SELECT id, name FROM authors ORDER BY name").all() as Author[];
 }
 
 // passende id finden
@@ -54,17 +65,17 @@ function findIdBySlug(slug: string): number | undefined {
     return row ? row.id : undefined;
 }
 
-// Neuen Post speichern
-export function addPost(post: Post) {
+// Neuen Post speichern (der Autor wird über authorId gespeichert, nicht über den Namen)
+export function addPost(post: Omit<Post, "author">) {
     getDB()
         .query(
-            "INSERT INTO blog_entries (title, slug, image, author, createdAt, teaser, content) VALUES ($title, $slug, $image, $author, $createdAt, $teaser, $content)",
+            "INSERT INTO blog_entries (title, slug, image, author_id, createdAt, teaser, content) VALUES ($title, $slug, $image, $authorId, $createdAt, $teaser, $content)",
         )
         .run({
             title: post.title,
             slug: post.slug,
             image: post.image,
-            author: post.author,
+            authorId: post.authorId,
             createdAt: post.createdAt,
             teaser: post.teaser,
             content: post.content,
@@ -72,7 +83,7 @@ export function addPost(post: Post) {
 }
 
 // gibt zurück, ob eine Zeile geändert wurde
-export async function updatePost(slug: string, changes: Partial<Post>): Promise<boolean> {
+export async function updatePost(slug: string, changes: Partial<Omit<Post, "author">>): Promise<boolean> {
     const id = findIdBySlug(slug);
     const current = getBlogpostBySlug(slug);
     if (id === undefined || !current) return false;
@@ -80,13 +91,13 @@ export async function updatePost(slug: string, changes: Partial<Post>): Promise<
     const post = { ...current, ...changes };
     const result = getDB()
         .query(
-            "UPDATE blog_entries SET title = $title, slug = $slug, image = $image, author = $author, createdAt = $createdAt, teaser = $teaser, content = $content WHERE id = $id",
+            "UPDATE blog_entries SET title = $title, slug = $slug, image = $image, author_id = $authorId, createdAt = $createdAt, teaser = $teaser, content = $content WHERE id = $id",
         )
         .run({
             title: post.title,
             slug: post.slug,
             image: post.image,
-            author: post.author,
+            authorId: post.authorId,
             createdAt: post.createdAt,
             teaser: post.teaser,
             content: post.content,

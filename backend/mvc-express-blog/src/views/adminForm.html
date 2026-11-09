@@ -28,9 +28,13 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="author" name="author" type="text" placeholder="Author"
-                            value="{{ post.author }}" required />
-                        <label for="author">Author</label>
+                        <select class="form-select" id="authorId" name="authorId" required>
+                            <option value="">Choose an author</option>
+                            {% for author in authors %}
+                            <option value="{{ author.id }}" {% if author.id == post.authorId %}selected{% endif %}>{{ author.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="authorId">Author</label>
                     </div>
 
                     <div class="form-floating mb-3">
