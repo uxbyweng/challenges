@@ -36,9 +36,16 @@ export function getBlogpostBySlug(slug: string): Post | undefined {
     return getAllPosts().find((post) => post.slug === slug);
 }
 
-// alle Posts aus Tabelle blog_entries auslesen
+// alle Posts aus Tabelle blog_entries auslesen, der Autorname kommt per JOIN aus authors
 export function getAllPosts(): Post[] {
-    return getDB().query("SELECT title, slug, image, author, createdAt, teaser, content FROM blog_entries").all() as Post[];
+    return getDB()
+        .query(
+            `SELECT blog_entries.title, blog_entries.slug, blog_entries.image, authors.name AS author,
+                    blog_entries.createdAt, blog_entries.teaser, blog_entries.content
+             FROM blog_entries
+             JOIN authors ON authors.id = blog_entries.author_id`,
+        )
+        .all() as Post[];
 }
 
 // passende id finden
