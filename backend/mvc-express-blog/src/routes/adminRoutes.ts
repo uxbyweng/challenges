@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { renderAllPosts, renderEmptyNewPostForm, createNewPost, renderExistingPostForm, saveEditedPost, deletePost } from "../controllers/adminControllers";
+import { renderAllPosts, renderEmptyNewPostForm, createNewPost, renderExistingPostForm, saveEditedPost, deletePost } from "../controllers/adminController";
 
 const adminRoutes = Router();
 

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { showBlogposts, showBlogpostBySlug } from "../controllers/blogpostControllers";
+import { showBlogposts, showBlogpostBySlug } from "../controllers/blogpostController";
 
 const blogpostRoutes = Router();
 
