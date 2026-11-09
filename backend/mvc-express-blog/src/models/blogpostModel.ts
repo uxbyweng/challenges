@@ -1,5 +1,4 @@
 import { getDB } from "../db/database";
-import { slugify } from "../utils/slugify-utils";
 
 export interface Post {
     title: string;
@@ -34,7 +33,7 @@ export function getBlogposts(authorFilter: string, sortBy: SortOrder, page: numb
 }
 
 export function getBlogpostBySlug(slug: string): Post | undefined {
-    return getAllPosts().find((post) => slugify(post.title) === slug);
+    return getAllPosts().find((post) => post.slug === slug);
 }
 
 // alle Posts aus Tabelle blog_entries auslesen
@@ -44,8 +43,8 @@ export function getAllPosts(): Post[] {
 
 // passende id finden
 function findIdBySlug(slug: string): number | undefined {
-    const rows = getDB().query("SELECT id, title FROM blog_entries").all() as { id: number; title: string }[];
-    return rows.find((row) => slugify(row.title) === slug)?.id;
+    const row = getDB().query("SELECT id FROM blog_entries WHERE slug = $slug").get({ slug }) as { id: number } | null;
+    return row ? row.id : undefined;
 }
 
 // Neuen Post speichern

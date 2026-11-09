@@ -1,6 +1,5 @@
 import { type Request, type Response } from "express";
 import { getBlogposts, getBlogpostBySlug, type SortOrder } from "../models/blogpostModel";
-import { slugify } from "../utils/slugify-utils";
 import { formatDate } from "../utils/date-utils";
 
 export const showBlogposts = (req: Request, res: Response) => {
@@ -12,7 +11,6 @@ export const showBlogposts = (req: Request, res: Response) => {
 
     const view = pagedPosts.map((post) => ({
         ...post,
-        slug: slugify(post.title),
         createdAt: formatDate(post.createdAt),
     }));
 

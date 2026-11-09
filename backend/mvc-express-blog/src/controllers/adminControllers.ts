@@ -40,7 +40,6 @@ export const renderAllPosts = (_req: Request, res: Response) => {
         .sort((a, b) => b.createdAt - a.createdAt)
         .map((post) => ({
             ...post,
-            slug: slugify(post.title),
             createdAt: formatDate(post.createdAt),
         }));
 
@@ -58,7 +57,7 @@ export const createNewPost = (req: Request, res: Response) => {
         return;
     }
 
-    if (getBlogpostBySlug(slugify(result.fields.title))) {
+    if (getBlogpostBySlug(result.fields.slug)) {
         res.status(409).send("A post with this title already exists.");
         return;
     }
@@ -91,7 +90,7 @@ export const saveEditedPost = (req: Request, res: Response) => {
         return;
     }
 
-    const newSlug = slugify(result.fields.title);
+    const newSlug = result.fields.slug;
     if (newSlug !== slug && getBlogpostBySlug(newSlug)) {
         res.status(409).send("A post with this title already exists.");
         return;
