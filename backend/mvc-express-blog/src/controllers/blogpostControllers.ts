@@ -45,11 +45,3 @@ export const showBlogpostBySlug = (req: Request, res: Response) => {
         post: { ...post, createdAt: formatDate(post.createdAt) },
     });
 };
-
-export const showAbout = (_req: Request, res: Response) => {
-    res.render("about.html");
-};
-
-export const showContact = (_req: Request, res: Response) => {
-    res.render("contact.html");
-};

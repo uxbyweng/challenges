@@ -4,6 +4,8 @@ import nunjucks from "nunjucks";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import blogpostRouter from "./routes/blogpostRoutes";
+import aboutRoute from "./routes/aboutRoute";
+import contactRoute from "./routes/contactRoute";
 import adminRoutes from "./routes/adminRoutes";
 
 const app = express();
@@ -27,7 +29,10 @@ app.use("/css", express.static(cssDir));
 // title=Hallo&author=Karsten  -> { title: "Hallo", author: "Karsten" }
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", blogpostRouter); // public
+// routing
+app.use("/", blogpostRouter); // blogpost
+app.use("/", aboutRoute); // about
+app.use("/", contactRoute); // contact
 app.use("/", adminRoutes); // admin
 
 // Datenbank verbinden, bevor der Server Anfragen annimmt
