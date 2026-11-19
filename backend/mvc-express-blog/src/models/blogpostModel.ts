@@ -54,7 +54,7 @@ export function getAllPosts(): Post[] {
         .all() as Post[];
 }
 
-// alle Autoren für das Dropdown im Admin-Formular
+// alle Autoren für Dropdown im Admin Form
 export function getAllAuthors(): Author[] {
     return getDB().query("SELECT id, name FROM authors ORDER BY name").all() as Author[];
 }
@@ -65,7 +65,7 @@ function findIdBySlug(slug: string): number | undefined {
     return row ? row.id : undefined;
 }
 
-// Neuen Post speichern (der Autor wird über authorId gespeichert, nicht über den Namen)
+// Neuen Post speichern (Autor wird über authorId gespeichert)
 export function addPost(post: Omit<Post, "author">) {
     getDB()
         .query(

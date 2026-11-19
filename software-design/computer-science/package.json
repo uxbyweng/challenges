@@ -1,0 +1,16 @@
+{
+    "name": "computer-science",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "dev": "bun ./index.html",
+        "try": "bun --watch src/try-history.ts",
+        "typecheck": "tsc --noEmit"
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^7"
+    }
+}

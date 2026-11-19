@@ -18,7 +18,7 @@ const projectRoot = path.resolve(__dirname, "..");
 const assetsDir = path.join(projectRoot, "src", "assets");
 const cssDir = path.join(projectRoot, "src", "css");
 
-// global verwendbare Jahreszahl deklarieren -> {{ Jahreszahl}}
+// global verwendbare Jahreszahl deklarieren -> {{ Jahreszahl }}
 const env = nunjucks.configure(projectViews, { autoescape: true, express: app });
 env.addGlobal("Jahreszahl", new Date().getFullYear());
 
